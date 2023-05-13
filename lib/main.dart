@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:birdbook/maps/pallettown.dart';
 
 import 'characters/boy.dart';
+import 'characters/pikachu.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,11 +32,16 @@ class _HomePageState extends State<HomePage> {
   double mapY = 0.0;
   double mapX = 0.0;
   //String currentLocation = "pallettown";
+
   int boySpriteCount = 0;
   String boyDirection = "Down";
 
+  int pikachuSpriteCount = 0;
+  String pikachuDirection = "Down";
+
   void moveUp() {
     boyDirection = 'Up';
+    pikachuDirection = "Up";
     setState(() {
       mapY += 0.2;
     });
@@ -44,6 +50,7 @@ class _HomePageState extends State<HomePage> {
 
   void moveDown() {
     boyDirection = 'Down';
+    pikachuDirection = "Down";
     setState(() {
       mapY -= 0.2;
     });
@@ -52,6 +59,7 @@ class _HomePageState extends State<HomePage> {
 
   void moveLeft() {
     boyDirection = 'Left';
+    pikachuDirection = "Left";
     setState(() {
       mapX += 0.2;
     });
@@ -60,6 +68,7 @@ class _HomePageState extends State<HomePage> {
 
   void moveRight() {
     boyDirection = 'Right';
+    pikachuDirection = "Right";
     setState(() {
       mapX -= 0.2;
     });
@@ -73,10 +82,14 @@ class _HomePageState extends State<HomePage> {
     Timer.periodic(Duration(milliseconds: 50), (timer) {
       setState(() {
         boySpriteCount++;
+        pikachuSpriteCount++;
       });
-
       if (boySpriteCount == 3) {
         boySpriteCount = 0;
+        timer.cancel();
+      }
+      if (pikachuSpriteCount == 3) {
+        pikachuSpriteCount = 0;
         timer.cancel();
       }
     });
@@ -99,6 +112,13 @@ class _HomePageState extends State<HomePage> {
                       child: myBoy(
                         boySpriteCount: boySpriteCount,
                         direction: boyDirection,
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment(-0.2, 0.02),
+                      child: myPikachu(
+                        pikachuSpriteCount: pikachuSpriteCount,
+                        direction: pikachuDirection,
                       ),
                     )
                   ],
