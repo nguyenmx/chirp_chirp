@@ -1,6 +1,6 @@
-# birdbook
+# Pokemon Pallet Town App
 
-A new Flutter project.
+An app that allows you to walk around in a map with a companion pokemon (pikachu) by your side. Designed to fit on a mobile device.
 
 ## Getting Started
 
