@@ -27,11 +27,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // pallet town
-
   double mapY = 0.0;
   double mapX = 0.0;
-  //String currentLocation = "pallettown";
 
   int boySpriteCount = 0;
   String boyDirection = "Down";
@@ -76,6 +73,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void pressedA() {}
+
   void pressedB() {}
 
   void animateWalk() {
@@ -103,92 +101,95 @@ class _HomePageState extends State<HomePage> {
           AspectRatio(
             aspectRatio: 1,
             child: Container(
-                color: Colors.black,
-                child: Stack(
-                  children: [
-                    PalletTown(x: mapX, y: mapY, currentMap: 'pallettown'),
-                    Container(
-                      alignment: Alignment(0, 0),
-                      child: myBoy(
-                        boySpriteCount: boySpriteCount,
-                        direction: boyDirection,
-                      ),
+              color: Colors.black,
+              child: Stack(
+                children: [
+                  PalletTown(x: mapX, y: mapY, currentMap: 'pallettown'),
+                  Container(
+                    alignment: Alignment(0, 0),
+                    child: myBoy(
+                      boySpriteCount: boySpriteCount,
+                      direction: boyDirection,
                     ),
-                    Container(
-                      alignment: Alignment(-0.2, 0.02),
-                      child: myPikachu(
-                        pikachuSpriteCount: pikachuSpriteCount,
-                        direction: pikachuDirection,
-                      ),
-                    )
-                  ],
-                )),
+                  ),
+                  Container(
+                    alignment: Alignment(-0.2, 0.02),
+                    child: myPikachu(
+                      pikachuSpriteCount: pikachuSpriteCount,
+                      direction: pikachuDirection,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
           Expanded(
             child: Container(
-                color: Colors.grey[900],
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'G A M E B O Y ',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              color: Colors.grey[900],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'G A M E B O Y ',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Row(
                         children: [
-                          Row(
+                          Column(
                             children: [
-                              Column(
-                                children: [
-                                  Container(height: 50, width: 50),
-                                  MyButton(
-                                    text: '←',
-                                    function: moveLeft,
-                                  ),
-                                  Container(height: 50, width: 50),
-                                ],
+                              Container(height: 50, width: 50),
+                              MyButton(
+                                text: '←',
+                                function: moveLeft,
                               ),
-                              Column(
-                                children: [
-                                  MyButton(
-                                    text: '↑',
-                                    function: moveUp,
-                                  ),
-                                  Container(height: 50, width: 50),
-                                  MyButton(
-                                    text: '↓',
-                                    function: moveDown,
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Container(height: 50, width: 50),
-                                  MyButton(
-                                    text: '→',
-                                    function: moveRight,
-                                  ),
-                                  Container(height: 50, width: 50),
-                                ],
-                              )
+                              Container(height: 50, width: 50),
                             ],
                           ),
-                          MyButton(
-                            text: 'a',
-                            function: pressedA,
+                          Column(
+                            children: [
+                              MyButton(
+                                text: '↑',
+                                function: moveUp,
+                              ),
+                              Container(height: 50, width: 50),
+                              MyButton(
+                                text: '↓',
+                                function: moveDown,
+                              ),
+                            ],
                           ),
-                          MyButton(
-                            text: 'b',
-                            function: pressedB,
+                          Column(
+                            children: [
+                              Container(height: 50, width: 50),
+                              MyButton(
+                                text: '→',
+                                function: moveRight,
+                              ),
+                              Container(height: 50, width: 50),
+                            ],
                           ),
-                        ]),
-                    Text(
-                      ' P A L L E T  T O W N',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
-                )),
+                        ],
+                      ),
+                      MyButton(
+                        text: 'a',
+                        function: pressedA,
+                      ),
+                      MyButton(
+                        text: 'b',
+                        function: pressedB,
+                      ),
+                    ],
+                  ),
+                  Text(
+                    ' P A L L E T  T O W N',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
